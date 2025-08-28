@@ -1,1 +1,1 @@
-# P2_LCD_2C2025
+# Programacion 2, LCD UNSAM, segundo cuatrimestre de 2025
