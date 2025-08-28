@@ -1,3 +1,7 @@
+from displays import CurrentConditionsDisplay, StatisticsDisplay, ForecastDisplay
+from Subject import WeatherData
+from clases_base_abstractas import Observer, DisplayElement
+
 def main():
     weather_data = WeatherData()
 
