@@ -14,9 +14,15 @@ class WeatherData(Subject):
         if observer in self._observers:
             self._observers.remove(observer)
 
+    # En Subject.py, dentro de la clase WeatherData
     def notify_observers(self):
         for observer in self._observers:
-            observer.update(self._temperature, self._humidity, self._pressure)
+            observer.update() # ¡Llama a update sin argumentos!
+
+
+    # def notify_observers(self):
+    #     for observer in self._observers:
+    #         observer.update(self._temperature, self._humidity, self._pressure)
 
     def measurements_changed(self):
         self.notify_observers()

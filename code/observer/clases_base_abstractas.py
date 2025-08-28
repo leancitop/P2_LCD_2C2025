@@ -13,6 +13,11 @@ class Subject(ABC):
     def notify_observers(self):
         pass
 
+# class Observer(ABC):
+#     @abstractmethod
+#     def update(self, temperature: float, humidity: float, pressure: float):
+#         pass
+
 class Observer(ABC):
     @abstractmethod
     def update(self):
