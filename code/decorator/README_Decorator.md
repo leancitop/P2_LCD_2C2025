@@ -3,15 +3,15 @@
 
 Este README acompaña a la **Clase 2** y al código de ejemplo en Python (`beverages.py`, `condiments.py`, `main.py`). El objetivo es **aprender y practicar** el patrón **Decorator** tal como se presenta en *Head First Design Patterns* (Cap. 3), y conectar los conceptos con un ejercicio guiado y extensiones.
 
-> Idea central: **extender comportamiento por composición** (envoltura) sin tocar el código probado de las clases base (cumplir **Open–Closed Principle**). Decoramos objetos en **tiempo de ejecución** agregando responsabilidades (p. ej., condimentos) de manera flexible. fileciteturn3file1
+> Idea central: **extender comportamiento por composición** (envoltura) sin tocar el código probado de las clases base (cumplir **Open–Closed Principle**). Decoramos objetos en **tiempo de ejecución** agregando responsabilidades (p. ej., condimentos) de manera flexible. 
 
 ---
 
 ## 1) Contexto y vínculo con la clase
 
-En la clase vimos que modelar todas las combinaciones de **bebidas + condimentos** con **herencia** lleva a una **explosión de clases** y a diseños rígidos. Decorator propone **envolver** un objeto base con uno o más **decoradores** que comparten su tipo y **delegan** la mayor parte del trabajo al objeto envuelto, **añadiendo** su aporte antes/después. fileciteturn3file0
+En la clase vimos que modelar todas las combinaciones de **bebidas + condimentos** con **herencia** lleva a una **explosión de clases** y a diseños rígidos. Decorator propone **envolver** un objeto base con uno o más **decoradores** que comparten su tipo y **delegan** la mayor parte del trabajo al objeto envuelto, **añadiendo** su aporte antes/después.
 
-**Principio Open–Closed (OCP):** *clases abiertas a extensión y cerradas a modificación*. Decorator es un patrón que nos permite **extender** sin **modificar** código existente. fileciteturn3file1
+**Principio Open–Closed (OCP):** *clases abiertas a extensión y cerradas a modificación*. Decorator es un patrón que nos permite **extender** sin **modificar** código existente. 
 
 ---
 
@@ -65,7 +65,7 @@ Si pedimos **DarkRoast + Mocha + Mocha + Whip**, cuando invocamos `cost()` en el
 1. Agregar a `Beverage` las operaciones `set_size(size)` y `get_size()`.  
 2. Hacer que **al menos** `Soy` cobre según tamaño (p. ej., Tall 0.10, Grande 0.15, Venti 0.20) y leer el `size` del componente envuelto.  
 3. Validar con 2–3 ejemplos reales: *HouseBlend Venti + Soy*, etc.  
-   > Pista: los decoradores deben **propagar** o **consultar** el tamaño del beverage envuelto; no dupliques estado. fileciteturn3file1
+   > Pista: los decoradores deben **propagar** o **consultar** el tamaño del beverage envuelto; no dupliques estado. 
 
 ### Nivel 3 — Usabilidad y pruebas
 1. **Builder/Factory simple (opcional)**: para no escribir a mano todas las “envolturas”, crear una función tipo `build_beverage(base, size, condiments)` que devuelva el objeto ya decorado.  
@@ -81,15 +81,15 @@ Si pedimos **DarkRoast + Mocha + Mocha + Whip**, cuando invocamos `cost()` en el
 
 ## 5) Buenas prácticas y “pitfalls”
 
-- **Programa contra la abstracción** (`Beverage`), no contra tipos concretos: si tu cliente chequea el tipo concreto de la bebida (p. ej., `isinstance(..., HouseBlend)`), al decorar se puede **romper** esa lógica. Evitalo. fileciteturn3file1  
-- **OCP**: para añadir un **nuevo condimento**, creá un **nuevo decorador**; **no** modifiques `Beverage` ni las bebidas existentes. fileciteturn3file1  
-- **Pequeñas clases**: Decorator tiende a generar **muchas clases pequeñas**; documentá y organizá bien para mantener la comprensión. fileciteturn3file1
+- **Programa contra la abstracción** (`Beverage`), no contra tipos concretos: si tu cliente chequea el tipo concreto de la bebida (p. ej., `isinstance(..., HouseBlend)`), al decorar se puede **romper** esa lógica. Evitalo.   
+- **OCP**: para añadir un **nuevo condimento**, creá un **nuevo decorador**; **no** modifiques `Beverage` ni las bebidas existentes.   
+- **Pequeñas clases**: Decorator tiende a generar **muchas clases pequeñas**; documentá y organizá bien para mantener la comprensión. 
 
 ---
 
 ## 6) Extensión sugerida: Decorator en I/O (paralelo con Java)
 
-El capítulo muestra cómo el paquete **java.io** usa Decorator (`InputStream` + `FilterInputStream` + `BufferedInputStream`, `ZipInputStream`, etc.). Como extensión, implementá un **wrapper** en Python para un “stream” de texto que **convierte a minúsculas** al leer, análogo a `LowerCaseInputStream`. fileciteturn3file1
+El capítulo muestra cómo el paquete **java.io** usa Decorator (`InputStream` + `FilterInputStream` + `BufferedInputStream`, `ZipInputStream`, etc.). Como extensión, implementá un **wrapper** en Python para un “stream” de texto que **convierte a minúsculas** al leer, análogo a `LowerCaseInputStream`. 
 
 ---
 
@@ -104,7 +104,7 @@ El capítulo muestra cómo el paquete **java.io** usa Decorator (`InputStream` +
 ---
 
 ## Referencias
-- *Head First Design Patterns*, Capítulo **3 — The Decorator Pattern** (Starbuzz, OCP, delegación, tamaños, Java I/O). fileciteturn3file0 fileciteturn3file1
+- *Head First Design Patterns*, Capítulo **3 — The Decorator Pattern** (Starbuzz, OCP, delegación, tamaños, Java I/O). fileciteturn3file0 
 
 ---
 
