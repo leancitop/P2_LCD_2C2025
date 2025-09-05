@@ -4,6 +4,10 @@
 from beverages import Espresso, DarkRoast, HouseBlend
 from condiments import Mocha, Whip, Soy
 
+from utils import build_beverage
+from presentation import format_description
+
+
 def main():
     """
     Función principal que simula la preparación de cafés en Starbuzz.
@@ -21,6 +25,10 @@ def main():
     beverage2 = Mocha(beverage2)  # Envolvemos con el segundo Mocha
     beverage2 = Whip(beverage2)   # Envolvemos con Crema
     print(f"Pedido 2: {beverage2.get_description()} ${beverage2.cost():.2f}")
+
+    # Usando build_beverage     -    función para el mismo pedido
+    beverage2 = build_beverage("DarkRoast", None, ["Mocha", "Mocha", "Whip"])
+    print(f"Pedido 2: {format_description(beverage2)} ${beverage2.cost():.2f}")
 
     # Pedido 3: Un HouseBlend con Soja, Mocha y Crema.
     beverage3 = HouseBlend()
