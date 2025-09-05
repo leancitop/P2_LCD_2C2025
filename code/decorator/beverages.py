@@ -17,6 +17,18 @@ class Beverage(ABC):
         Devuelve la descripción de la bebida.
         """
         return self.description
+    
+    def set_size(self, size):
+        """
+        Establece el tamaño de la bebida.
+        """
+        pass
+
+    def get_size(self):
+        """
+        Devuelve el tamaño de la bebida.
+        """
+        pass
 
     @abstractmethod
     def cost(self) -> float:
