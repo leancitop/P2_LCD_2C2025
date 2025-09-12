@@ -9,8 +9,15 @@ class Beverage(ABC):
     La clase base para todas las bebidas. Utiliza el módulo abc para
     definir que es una clase abstracta.
     """
-    def __init__(self):
+    VALID_SIZES = ("Tall", "Grande", "Venti")
+    def __init__(self, size=None):
         self.description = "Bebida Desconocida"
+        if size is None:
+            self.size = "Grande"
+        elif size in self.VALID_SIZES:
+            self.size = size
+        else:
+            raise ValueError(f"Tamaño '{size}' no válido. Debe ser Tall, Grande o Venti.")
 
     def get_description(self) -> str:
         """
@@ -22,13 +29,16 @@ class Beverage(ABC):
         """
         Establece el tamaño de la bebida.
         """
-        pass
+        if size in self.VALID_SIZES:
+            self.size = size
+        else:
+            raise ValueError(f"Tamaño '{size}' no válido. Debe ser Tall, Grande o Venti.")
 
     def get_size(self):
         """
         Devuelve el tamaño de la bebida.
         """
-        pass
+        return self.size
 
     @abstractmethod
     def cost(self) -> float:
@@ -43,7 +53,8 @@ class HouseBlend(Beverage):
     """
     Café de la casa, un tipo específico de bebida.
     """
-    def __init__(self):
+    def __init__(self, size=None):
+        super().__init__(size)
         self.description = "Café de la Casa"
 
     def cost(self) -> float:
@@ -53,7 +64,8 @@ class DarkRoast(Beverage):
     """
     Café Dark Roast, un tipo específico de bebida.
     """
-    def __init__(self):
+    def __init__(self, size=None):
+        super().__init__(size)
         self.description = "Café Dark Roast"
 
     def cost(self) -> float:
@@ -63,7 +75,8 @@ class Decaf(Beverage):
     """
     Café Descafeinado, un tipo específico de bebida.
     """
-    def __init__(self):
+    def __init__(self, size=None):
+        super().__init__(size)
         self.description = "Café Descafeinado"
 
     def cost(self) -> float:
@@ -73,7 +86,8 @@ class Espresso(Beverage):
     """
     Café Espresso, un tipo específico de bebida.
     """
-    def __init__(self):
+    def __init__(self, size=None):
+        super().__init__(size)
         self.description = "Espresso"
 
     def cost(self) -> float:
